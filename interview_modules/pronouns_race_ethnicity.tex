@@ -1,0 +1,81 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Interview module for getting subject pronouns       %
+% and opinions on race and ethnicity in Louisiana     %
+% French.                                             %
+%                                                     %
+% -Joshua McNeill (joshua dot mcneill at uga dot edu) %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifdefined \longtrans
+  % Do nothing
+\else
+  \newcommand{\longtrans}[1]{\[#1\]}
+\fi
+
+\begin{enumerate}
+  \subsection{Demographics}
+    \item Dans quelle année que t'as été né?\\
+      \longtrans{In what year were you born?}
+    \item Éoù tu restes?\\
+      \longtrans{Where do you live?}
+    \begin{enumerate}
+      \item Ça c'est éoù t'as grandi, aussit?\\
+        \longtrans{Is that where you grew up, too?}
+      \item Ta famille reste dans le même village que toi?\\
+        \longtrans{Does your family live in the same town as you?}
+    \end{enumerate}
+    \item Tu fais quoi comme métier?\\
+      \longtrans{What is your profession?}
+    \item T'as été au collège?\\
+      \longtrans{Did you go to college?}
+    \begin{enumerate}
+      \item Quelle université?\\
+        \longtrans{Which university?}
+    \end{enumerate}
+  \subsection{Casual Conversation}
+    \subsubsection{3rd person plural}
+      \item Quelles qualités de jobs le monde fait dans ton village?\\
+        \longtrans{What kind of work do the people in your town do?}
+      \item Quoi tu penses pour le monde dans ton village? Le monde se traite bien? T'as un exemple?\\
+        \longtrans{What are the people in your town like? People treat each other well? Do you have an example?}
+    \subsubsection{3rd person singular}
+      \item Combien grand est ta famille?
+        \longtrans{How big is your family?}
+      \item Ton/ta <family member> est comment? T'as une histoire de <family member>?
+    \subsubsection{1st person plural}
+      \item T'as pris des vacances avec ta famille ou peut-être d'autre monde? Quoi c'était des vacances mémorables?
+      \item Quelle activité t'aimes faire avec le monde?
+  \subsection{Race and Ethnicity}
+    \item Quoi c'est un Cadien, d'après toi?
+    \item Quoi c'est un Creole, d'après toi?
+    \item Tous les Cadiens et Créoles sont américains, aussit?
+    \item Y'a du monde de différent de races dans ton village?
+    \item Si t'aurais besoin de déclarer ta race, quoi tu dirais?
+    \item Les races sont liées aux ethnicités ou non? Par exemple, tous les Cadiens sont d'une race et puis tous les Créoles d'une autre race?
+    \item T'as des amis de différent de races, toi?
+    \item Toutes les races se comportent de la même manière, d'après toi?
+  \subsection{French}
+    \item Quoi tu penses pour le français?
+    \item Le français est toujours important dans la Louisiane?
+    \item Combien de monde parle français au jour d'aujourd'hui?
+    \item Tu veux qu'on continue à parler français à l'avenir?
+    \item Tout quelqu'un parle français de la même manière dans la Louisiane?
+  \subsection{Social Network Data}
+    \subsubsection{Name Generators}
+    \item Tous les temps en temps, le monde parle pour les affaires importantes avec d'autre monde. Si tu peux jongler pour les six derniers mois, qui sont les individus avec qui toi tu parles pour les affaires qui te sont importantes? Donne-moi rien que leur prénom ou leurs initiales.\\
+      \longtrans{From time to time, most people discuss important matters with other people. Looking back over the last six months, who are the people with whom you discussed matters important to you? Just tell me their first names or initials.}
+    \item Qui sont les personnes avec qui tu parles souvent français? Donne-moi rien que leur prénom ou leurs initiales.\\
+      \longtrans{Who are the people with whoom you often speak French? Just tell me their first names or initials.}
+    \subsubsection{Name Interpretors}
+    \item Pour chaque personne sur cette liste, quoi c'est ton rapport avec lui? La personne est un(e) ami(e) ou un parent ou autre chose?\\
+      \longtrans{For each person on this list, what is your relationship with them? Is the person a friend or a relative or something else?}
+    \item Quelles personnes sur cette liste sont des personnes avec qui tu parles souvent français?\\
+      \longtrans{Which people on this list are people with whom you often speak French?}
+    \item Pour chaque personne sur cette liste, quoi c'est son éthnicité, c'est-à-dire son \foreign{ethnicity}?\\
+      \longtrans{For each person on this list, what is their ethnicity, that is to say their ethnicity?}
+    \item Pour chaque personne sur cette liste, quoi c'est sa race?\\
+      \longtrans{For each person on this list, what is their race?}
+  \subsection{Wrap-Up}
+    \subsubsection{2nd person singular}
+    \item T'as des questions pour moi?
+\end{enumerate}
