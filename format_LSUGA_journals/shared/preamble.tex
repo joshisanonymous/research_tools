@@ -5,7 +5,7 @@
     \setmainfont{Charis SIL}
     \newfontfamily\hangul{Batang}
   \usepackage[style=apa, backend=biber]{biblatex}
-    \addbibresource{references.bib}
+    \addbibresource{References.bib}
   \usepackage{hyperref}
     \hypersetup{colorlinks=true, allcolors=blue}
   \usepackage{siunitx}
@@ -14,13 +14,44 @@
              detect-all}
   \usepackage{tabularx}
     \newcolumntype{Y}{>{\raggedleft\arraybackslash}X}
+  \usepackage{fancyhdr}
+    \pagestyle{fancy}
+    \fancyhf{}
+    \lhead{\short}
+    \rhead{Page \thepage}
+    \lfoot{UGA Working Papers in Linguistics, Vol 5 (2021)}
 
-  % New commands
+  % New commands for document info
+  \newcommand{\shorttitle}[1]{
+    \newcommand{\short}{#1}
+  }
+  \newcommand{\affiliation}[1]{
+    \newcommand{\showaffil}{#1}
+  }
+  \newcommand{\contact}[1]{
+    \newcommand{\showcontact}{\href{mailto:#1}{#1}}
+  }
+  \newcommand{\showextra}{
+    {\small
+      \begin{center}
+        \showaffil{} -- \showcontact
+      \end{center}
+    }
+  }
+
+  % New commands for text formatting
   \newcommand{\orth}[1]{$\langle$#1$\rangle$}
   \newcommand{\lexi}[1]{\textit{#1}}
   \newcommand{\gloss}[1]{`#1'}
   \newcommand{\code}[1]{\texttt{#1}}
   \newcommand{\foreign}[1]{\textit{#1}}
   \newcommand{\longtrans}[1]{[#1]}
+
+  % Document info
+  \date{}
+  \renewcommand{\maketitle}{
+    \maketitle
+    \showextra
+  }
 
 \begin{document}

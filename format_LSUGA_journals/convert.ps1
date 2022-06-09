@@ -95,6 +95,6 @@ foreach ($file in $filesWord) {
   set-content "./$($name)/references.txt" $referencesPlain
 }
 
-#########################
-# For LaTeX submissions #
-#########################
+## LaTeX files are also captured but not processed as it would be too difficult
+## to guess all possible tags a person might use and convert them automatically
+## to what we would like to use.
