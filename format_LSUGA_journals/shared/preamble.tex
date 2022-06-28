@@ -1,11 +1,11 @@
 \documentclass{article}
   % Packages and settings
-  \usepackage{amsmath, longtable, calc, multirow, booktabs, graphicx, enumitem}
+  \usepackage{amsmath, longtable, calc, multirow, booktabs, graphicx, enumitem,
+              pdfpages, catchfile}
   \usepackage{fontspec}
     \setmainfont{Charis SIL}
     \newfontfamily\hangul{Batang}
   \usepackage[style=apa, backend=biber]{biblatex}
-    \addbibresource{References.bib}
   \usepackage{hyperref}
     \hypersetup{colorlinks=true, allcolors=blue}
   \usepackage{siunitx}
@@ -19,7 +19,7 @@
     \fancyhf{}
     \lhead{\short}
     \rhead{Page \thepage}
-    \lfoot{UGA Working Papers in Linguistics, Vol 5 (2021)}
+    \lfoot{UGA Working Papers in Linguistics, Vol 5 (2022)}
 
   % New commands for document info
   \newcommand{\shorttitle}[1]{
@@ -43,15 +43,12 @@
   \newcommand{\orth}[1]{$\langle$#1$\rangle$}
   \newcommand{\lexi}[1]{\textit{#1}}
   \newcommand{\gloss}[1]{`#1'}
+  \newcommand{\cat}[1]{\textsc{#1}}
   \newcommand{\code}[1]{\texttt{#1}}
   \newcommand{\foreign}[1]{\textit{#1}}
   \newcommand{\longtrans}[1]{[#1]}
 
   % Document info
   \date{}
-  \renewcommand{\maketitle}{
-    \maketitle
-    \showextra
-  }
-
-\begin{document}
+  \CatchFileDef{\startpage}{../shared/page.tex}{}
+  \setcounter{page}{\startpage}

@@ -6,15 +6,48 @@
 #                                                                          #
 # Dependencies:                                                            #
 #   * pandoc                                                               #
+#   * pdfinfo                                                              #
 #                                                                          #
-# Steps:                                                                   #
+# Full process steps:                                                      #
 #   1) Place script and submission files into the same directory.          #
 #   2) Rename submission files to match the last name of author.           #
 #   3) Run script.                                                         #
 #   4) Submit the references.txt from each generated directory to          #
 #      the text2bib site to obtain .bib files.                             #
-#   5) Manually update the mark-up in the .tex files.                      #
-#   6) Compile the documents with XeTeX.                                   #
+#   5) Manually update the mark-up in the .tex files.*                     #
+#   6) Update page.tex to be the page on which to start this volume.       #
+#   7) Compile .tex files (all in the same dir) using compile_all.ps1.     #
+#                                                                          #
+# Typical manual editing steps:                                            #
+#   1) Keyword search in the doc for each entry in the .bib file to        #
+#      adjust mentions to mark-up.                                         #
+#      a) If it's already a TeX doc with a .bib, just make sure the cite   #
+#         tags are all biblaTeX compliant.                                 #
+#   2) Keyword search all ( marks to find separated page number citations  #
+#      and replace with correct format, e.g. (p.~#).                       #
+#   2) Find and replace all \emph tags to \lexi.                           #
+#      a) Double check that each \emph was a lexical item (they usualy     #
+#        will be).                                                         #
+#      b) When followed by a gloss, they should have the \gloss mark-up.   #
+#      c) Do the same for all other \text... tags that may actually be     #
+#         lexical items or things like grammatical categories.             #
+#   3) Keyword search " and ' to replace with ``...'' and `...' pairs,     #
+#      respectively.                                                       #
+#   4) Make sure tables and figures look like they did in the original     #
+#      submission.                                                         #
+#   5) If they're not in the correct locations (e.g., all appended),       #
+#      place them in a float in the generally right position with the      #
+#      correct float placement flags.                                      #
+#   6) Do keyword search for figure and table to identify where mentions   #
+#      of figures and tables appear in the text, at which point you should #
+#      replace with \label and \ref tags instead and make sure things like #
+#      "see below/above/wherever" are accurate directions.                 #
+#   7) Make sure all web links in the text are clickable (i.e., they're    #
+#      marked up with \href and such).                                     #
+#   8) Make sure \title, \shorttitle, \author, \affilication, and          #
+#      \contact are all defined.                                           #
+#      a) Add \showextra right after \maketitle to make sure said info     #
+#         appears.                                                         #
 #                                                                          #
 # Special note: PowerShell is native to Windows but can also be install    #
 #               on Mac in order to run this script.                        #
