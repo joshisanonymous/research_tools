@@ -6,14 +6,17 @@
 % -Joshua McNeill (joshua dot mcneill at uga dot edu) %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Formatting commands
 \ifdefined \longtrans
   % Do nothing
 \else
   \newcommand{\longtrans}[1]{\[#1\]}
 \fi
+\newcommand{\setting}[1]{\textbf{#1}}
 
-\begin{enumerate}
-  \subsection{Demographics}
+% Content
+\subsection{Demographics}
+  \begin{enumerate}
     \item Dans quelle année que t'as été né?\\
       \longtrans{In what year were you born?}
     \item Éoù tu restes?\\
@@ -36,25 +39,25 @@
     \item Quoi c'est ton sexe?\\
       \longtrans{What is your gender?}\\
       (Ask near the end of the interview if they have not gendered themselves through adjective use.)
-  \subsection{Casual Conversation}
-    \subsubsection{3rd person plural}
-      \item Quelles qualités de jobs le monde fait dans ton village?\\
-        \longtrans{What kind of work do the people in your town do?}
-      \item Comment t'as rencontré les amis que t'as aujourd'hui?\\
-        \longtrans{How did you meet the friends you have today?}
-      % \item Quoi tu penses pour le monde dans ton village? Le monde se traite bien? T'as un exemple?\\
-      %   \longtrans{What are the people in your town like? People treat each other well? Do you have an example?}
-    \subsubsection{3rd person singular}
-      \item Y'a combien de personnes dans ta famille?\\
-        \longtrans{How many people are there in your family?}
-      \item Ton/ta <family member> est comment? T'as une histoire de <family member>?\\
-        \longtrans{What is <family member> like? Do you have a story about <family member>?}
-    \subsubsection{1st person plural}
-      \item T'as pris des vacances avec ta famille ou peut-être d'autre monde? Quoi c'était des vacances mémorables? \\
-        \longtrans{Have you taken vacations with your family or perhaps other people? What was a memorable vacation?}
-      \item Quelle activité t'aimes faire avec le monde? \\
-        \longtrans{What activity do you like to do with people?}
-  \subsection{Race and Ethnicity}
+\subsection{Casual Conversation}
+  \subsubsection{3rd person plural}
+    \item Quelles qualités de jobs le monde fait dans ton village?\\
+      \longtrans{What kind of work do the people in your town do?}
+    \item Comment t'as rencontré les amis que t'as aujourd'hui?\\
+      \longtrans{How did you meet the friends you have today?}
+    % \item Quoi tu penses pour le monde dans ton village? Le monde se traite bien? T'as un exemple?\\
+    %   \longtrans{What are the people in your town like? People treat each other well? Do you have an example?}
+  \subsubsection{3rd person singular}
+    \item Y'a combien de personnes dans ta famille?\\
+      \longtrans{How many people are there in your family?}
+    \item Ton/ta <family member> est comment? T'as une histoire de <family member>?\\
+      \longtrans{What is <family member> like? Do you have a story about <family member>?}
+  \subsubsection{1st person plural}
+    \item T'as pris des vacances avec ta famille ou peut-être d'autre monde? Quoi c'était des vacances mémorables? \\
+      \longtrans{Have you taken vacations with your family or perhaps other people? What was a memorable vacation?}
+    \item Quelle activité t'aimes faire avec le monde? \\
+      \longtrans{What activity do you like to do with people?}
+\subsection{Race and Ethnicity}
     \item Quoi c'est un Cadien, d'après toi? \\
       \longtrans{What is a Cajun, in your opinion?}
     \item Quoi c'est un Creole, d'après toi? \\
@@ -76,14 +79,22 @@
     % \item Le français est toujours important dans la Louisiane? Combien de monde parle français au jour d'aujourd'hui? \\
     %   \longtrans{Is French still important in Louisiana? How many people speak French nowadays?}
     % \item Tu veux qu'on continue à parler français à l'avenir? \\
-    %   \longtrans{Do you want French to continue being spoken in the future?}
-  \subsection{Social Network Data}
-    \subsubsection{Name Generators}
+%   \longtrans{Do you want French to continue being spoken in the future?}
+\subsection{Wrap-Up (after all sections have been completed)}
+  \subsubsection{2nd person singular}
+    \item T'as des questions pour moi?\\
+      \longtrans{Do you have any questions for me?}
+  \end{enumerate}
+
+\newpage
+\subsection{Social Network Data}
+  \begin{enumerate}
+  \subsubsection{Name Generators}
     \item Tous les temps en temps, le monde parle pour les affaires importantes avec d'autre monde. Si tu peux jongler pour les six derniers mois, qui sont les individus avec qui toi tu parles pour les affaires qui te sont importantes? Donne-moi rien que leur prénom ou leurs initiales.\\
       \longtrans{From time to time, most people discuss important matters with other people. Looking back over the last six months, who are the people with whom you discussed matters important to you? Just tell me their first names or initials.}
     \item Qui sont les personnes avec qui tu parles souvent français? Donne-moi rien que leur prénom ou leurs initiales.\\
       \longtrans{Who are the people with whoom you often speak French? Just tell me their first names or initials.}
-    \subsubsection{Name Interpretors}
+  \subsubsection{Name Interpretors}
     \item Pour chaque personne sur cette liste, quoi c'est ton rapport avec lui? La personne est un(e) ami(e) ou un parent ou autre chose?\\
       \longtrans{For each person on this list, what is your relationship with them? Is the person a friend or a relative or something else?}
     \item Quelles personnes sur cette liste sont des personnes avec qui tu parles souvent français?\\
@@ -92,8 +103,132 @@
       \longtrans{For each person on this list, what is their ethnicity, that is to say their ethnicity?}
     \item Pour chaque personne sur cette liste, quoi c'est sa race?\\
       \longtrans{For each person on this list, what is their race?}
-  \subsection{Wrap-Up}
-    \subsubsection{2nd person singular}
-      \item T'as des questions pour moi?\\
-        \longtrans{Do you have any questions for me?}
-\end{enumerate}
+  \end{enumerate}
+
+\newpage
+\subsection{Translation Task}
+  \begin{enumerate}
+    \item[] \setting{Comment tu dirais d'habitude les phrases suivantes, personnel?}\\
+      \longtrans{How would you usually say the following phrases, personally?}
+    \item[] \setting{Tes cousins, Beth et Jen, feront une soirée, et toi tu vas inviter deux de tes meilleurs amis pour aller là avec toi. Tu dis:}\\
+      \longtrans{Your cousins, Beth and Jen, will be hosting a party, and you are going to invite two of your best friends to go there with you. You say:}
+    \item (2pl.A) Do y'all want to go to the party with me?
+    \item (3pl.AF) They would like us to be there at 7.
+    \item[] \setting{Tes amis te demandent quoi tes cousins vont servir à la soirée. Tu dis:}\\
+      \longtrans{Your friends ask you what your cousins will serve at the party. You say:}
+    \item (3pl.AF) They are making gumbo.
+    \item (3pl.AF) While making gumbo, they talk to each other in French.
+    \item[] \setting{Tes amis te demandent:}\\
+      \longtrans{Your friends ask you:}
+    \item (3pl.AF, 1pl.A) What do they want us to bring?
+    \item[] \setting{Tu réponds:}\\
+      \longtrans{You answer:}
+    \item (3pl.AF $\times$ 2) They need a bowl they can put the punch in.
+    \item (2pl.A) Do y'all like wine with dinner?
+    \item[] \setting{Tes amis disent «oui» et te demandent s'il en faut une bouteille. Tu dis:}\\
+      \longtrans{Your friends say ``yes'' and ask you if there's need for a bottle. You say:}
+    \item (1sg) I already bought some.
+    \item (1sg $\times$ 2) If I had more time, I would also make them a cake.
+    \item[] \setting{À 7 heures, toi et tes amis arrivent à la soirée. Ta cousine, Beth, demande:}\\
+      \longtrans{At 7 o'clock, you and your friends arrive at the party. Your cousin, Beth, asks:}
+    \item (2pl.A, 1sg.F) Do y'all want some coffee? I had my sister make some.
+    \item[] \setting{Beth, en faisant référence à d'autres invités, dit:}\\
+      \longtrans{Beth, referring to other guests, says:}
+    \item (1sg.F, 3pl.A) I'm afraid they won't be here on time.
+    \item[] \setting{Toi, tu réponds:}\\
+      \longtrans{You reply:}
+    \item (3pl.A $\times$ 2) They told me they would be late for the party.
+    \item[] \setting{Beth et Jen manquent d'écrevisses pour le gombo et disent:}\\
+      \longtrans{Beth and Jen run out of crawfish for the gumbo and say:}
+    \item (1pl.F, 2pl.A) We would be happy if y'all would go to the store for us.
+    \item[] \setting{Tu réponds:}\\
+      \longtrans{You reply:}
+    \item (1pl.A) Which store do you want us to go to?
+    \item[] \setting{Jen et Beth disent qu'il y a un magasin opéré par leur amie Irene. Jen dit:}\\
+      \longtrans{Jen and Beth say that there's a store operated by their friend Irene. Jen says:}
+    \item (1sg.F) That's the store I always go to.
+    \item (1sg.F $\times$ 2) If I wasn't busy, I would go with you.
+    \item[] \setting{Toi, tu dis:}\\
+      \longtrans{You say:}
+    \item Is Irene the neighbor whose daughter just got married?
+    \item[] \setting{Jen dit «oui» puis:}\\
+      \longtrans{Jen say ``yes'' and then:}
+    \item (2pl.A) Irene is the person y'all should ask for at the store.
+    \item (1sg.F, 3pl.A) I doubt that they have any crawfish left.
+    \item Buy me some shrimp and some cream for the coffee.
+    \item Don't bring any more sugar.
+    \item (1sg.F, 2pl.A) I would like y'all to come back by 7:30.
+    \item[] \setting{Tu visites M. Comeaux, un membre d'honneur de la communauté qui vient de passer sa fête de 90 ans la semaine passée. Tu lui dis:}\\
+      \longtrans{You visit Mr. Comeaux, a respectable member of the community who just celebrated his 90th birthday last week. You say to him:}
+    \item (2sg.MV) How do you feel today, Mr. Comeaux?
+    \item (2sg.MV) Would you like some of the gumbo that Beth made, Mr. Comeaux?
+    \item (1sg, 2sg.MV) I think you would really like it.
+    \item[] \setting{M. Comeaux dit:}\\
+      \longtrans{Mr. Comeaux says:}
+    \item (1sg.M $\times$ 2) I would have some if I was hungry.
+    \item[] \setting{La fille à M. Comeaux lui dit:}\\
+      \longtrans{Mr. Comeaux's daughter says to him:}
+    \item (1sg.A, 2sg.MV) Papa, we want you to have some.
+    \item[] \setting{Ses petits-enfants sont après carnager dans la maison. M. Comeaux dit à sa fille:}\\
+      \longtrans{His grandchildren are playing noisily in the house. Mr. Comeaux says to his daughter:}
+    \item (3pl.A) They are being loud.
+    \item (2sg.FT) Can you quiet them down?
+    \item (1sg.M, 3pl.A) I told them that they should get dressed for church.
+    \item (1sg.M, 3pl.A) I want them to go to church every Sunday.
+    \item (1sg.M, 3pl.A) I wake them up early so that they have enough time.
+    \item (3pl.A) They have to be there by noon.
+    \item[] \setting{La fille dit aux enfants:}\\
+      \longtrans{The daughter says to the children:}
+    \item (1sg.F, 2pl.A) I want you to be quiet.
+    \item[] \setting{M. Comeaux te dit:}\\
+      \longtrans{Mr. Comeaux says to you:}
+    \item These are the children I'm so proud of.
+    \item (1sg.M, 3pl.A) I want them to be happy.
+    \item (1sg.M, 3pl.A) I want them to have a good life.
+    \item (1sg.M) I like to read them stories sometimes.
+    \item[] \setting{Il y a un livre de contes sur la table à côté de M. Comeaux, et tu demandes:}\\
+      \longtrans{There's a book of tales on the table next to Mr. Comeaux, and you ask:}
+    \item Is that the book you read?
+    \item[] \setting{M. Comeaux dit:}\\
+      \longtrans{Mr. Comeaux says:}
+    \item (3sg.IM, 3pl.A) It's the book that they spilled ice cream on.
+    \item (1sg.M $\times$ 2) If I felt better, I would read it to them tonight.
+    \item (1sg.M) My friends want me to finish it by Tuesday.
+    \item (3pl.A $\times$ 2) They said that they need it then.
+    \item (3sg.IM) It's a good book so far.
+    \item[] \setting{Tu demandes:}\\
+      \longtrans{You ask:}
+    \item (2sg.AV) Are they the friends that you were talking to on the phone?
+    \item[] \setting{M. Comeaux dit:}\\
+      \longtrans{Mr. Comeaux says:}
+    \item (3pl.A) They are the friends in whose house the fire started last summer.
+    \item (3pl.A, 1sg.M) They are the people I've lived next to all my life.
+    \item Tu entends de la pluie sur la couverture de la maison. M. Comeaux dit:\\
+      \longtrans{You hear some rain on the roof of the house. Mr. Comeaux says:}
+    \item I was afraid that it would rain today.
+    \item[] \setting{M. Comeaux dit aux enfants:}\\
+      \longtrans{Mr. Comeaux says to the children:}
+    \item (1sg.M, 2pl.A, 3pl.IF) I want you to grab your toys so that they don't get wet.
+    \item En piaillant que leurs bébelles soient trempes, les enfants disent:\\
+      \longtrans{Complaining that their toys are wet, the children say:}
+    \item (expl, 1pl.A) Now there's nothing we can play with.
+    \item[] \setting{M. Comeaux leur dit:}\\
+      \longtrans{Mr. Comeaux says to them:}
+    \item (expl) Then it is time to eat.
+    \item (2pl.A) You can have some of this gumbo.
+    \item[] \setting{M. Comeaux te dit:}\\
+      \longtrans{Mr. Comeaux says to you:}
+    \item (2sg.AT) Could you give them some?
+    \item[] \setting{Tu réponds:}\\
+      \longtrans{You respond:}
+    \item Sure! Pass me those bowls.
+    \item (3pl.IM) They are very nice bowls.
+    \item Is this the drawer with the spoons?
+    \item (3pl.IF) They are also very nice spoons.
+    \item[] \setting{M. Comeaux says:}\\
+      \longtrans{Mr. Comeaux says:}
+    \item (1sg.M, 1pl.A) When I was young, we used to eat gumbo all the time.
+    \item (1sg.M) When I came home from school, my mother had already cooked dinner.
+    \item (3sg.AF) She was a good cook.
+    \item (1pl.A) Then we would go for a walk in the evening.
+  \end{enumerate}
