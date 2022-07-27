@@ -7,7 +7,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Formatting commands
-\newcommand{\setting}[1]{\textbf{#1}}
+\ifdefined \setting
+  % Do nothing
+\else
+  \newcommand{\setting}[1]{\textbf{#1}}
+\fi
 
 % Content
 \section{Email Scheduling Script}

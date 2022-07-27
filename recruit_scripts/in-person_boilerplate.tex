@@ -11,7 +11,11 @@
 \else
   \newcommand{\longtrans}[1]{\[#1\]}
 \fi
-\newcommand{\setting}[1]{\textbf{#1}}
+\ifdefined \setting
+  % Do nothing
+\else
+  \newcommand{\setting}[1]{\textbf{#1}}
+\fi
 
 % Content
 \section{In-person Recruitment Script}
