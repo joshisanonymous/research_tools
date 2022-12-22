@@ -1,0 +1,87 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is the template primary TeX file for the template   %
+% for the UGA Working Papers in Linguistics as well as     %
+% the LCUGA Conference Proceedings.                        %
+%                                                          %
+% The document should be compiled with XeTeX and biblatex. %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Load the standard preamble
+\input{shared/preamble.tex}
+
+%%%%%%
+% Feel free to add additional packages
+% and package settings here
+%%%%%%
+
+% Document information
+\title{Your title}
+\shorttitle{An abbreviated version of your title}
+\author{Your name}
+\contact{Your email address}
+\affiliation{Your affilliation}
+\addbibresource{references.bib} % your .bib file for references
+
+\begin{document}
+  \maketitle
+  \showextra % This is for additional title info not included in \maketitle
+  \thispagestyle{empty} % To remove the footer from the first page
+
+  \begin{abstract}
+    This is the template for a submission to the UGA Working Papers in Linguistics or the LCUGA Conference Proceedings.
+    Your submission should have an abstract and it should go here.
+    Try to keep the abstract to about 100 words.
+  \end{abstract}
+
+  \section{One of your sections}
+    Text for your section goes here.
+    \subsection{One of your subsections}
+      You can also have subsections like this.
+
+  \section{Basic formatting}
+    The document itself should have the following formatting options:
+    \begin{itemize}
+      \item Submit either LaTeX, Word, or LibreOffice formats
+      \item Charis SIL for the font
+      \item 12pt font size
+      \item Letter paper size (8.5in by 11in)
+      \item 1.25in margins
+      \item Use APA standards for citations and work cited that looks like this \parencite[p.~100]{gudmestad_variationist_2022}
+    \end{itemize}
+
+    Cross-references and links should be in blue.
+    For example, your cross-reference for the table below should be Table \ref{tab:example}, or a web site link might be \href{https://linguistics.uga.edu}{UGA Linguistics} (\url{https://linguistics.uga.edu}).
+    Orthographic forms should be \orth{in chevrons}.
+    Lexical items should be \lexi{italicized}.
+    Glosses should be \gloss{surrounded by single quotes}.
+    Grammatical categories should be \cat{in small caps}.\footnote{
+      You should use footnotes like this instead of endnotes.
+    }
+    Computer code should be \code{in a monospaced font}.
+    Foreign words should be \foreign{italicized}.
+    If you need to use Hangul, it should be written using the Batang font: \foreign{e.g.}, {\hangul 온다}.
+    Translations of large amounts of text should go \longtrans{in between square brackets} as opposed to using \gloss{single quotes as you would with glosses}.
+
+    \begin{table}[tbhp]
+      \begin{center}
+        \caption{Here is the table's caption}
+        \label{tab:example}
+        Tables should be placed in floats like this one.
+        They should preferably be at the top or bottom of a page but can otherwise be on their own page or simply where needed.
+      \end{center}
+    \end{table}
+
+    \begin{figure}[tbhp]
+      \begin{center}
+        \caption{Here is the figure's caption}
+        \label{tab:example}
+        Figures should be just like tables but numbered separately.
+      \end{center}
+    \end{figure}
+
+    For example sentences (\foreign{e.g.}, if you are submitting a syntax paper), make sure the number is also separate from tables and figures.
+    You may use whichever means you like to format these sentences.
+    Finally, your works cited should go at the end of the document.
+
+  \printbibliography % Your works cited should go at the end
+\end{document}

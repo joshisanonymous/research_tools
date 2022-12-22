@@ -274,9 +274,3 @@ TSWLatexianTemp*
 
 # Makeindex log files
 *.lpz
-
-# format journals stuff that is not the scripts and such
-format_LSUGA_journals/*
-!format_LSUGA_journals/shared/
-!format_LSUGA_journals/convert.ps1
-!format_LSUGA_journals/compile_all.ps1

@@ -1,7 +1,8 @@
-\documentclass{article}
+\documentclass[12pt, letterpaper]{article}
   % Packages and settings
   \usepackage{amsmath, longtable, calc, multirow, booktabs, graphicx, enumitem,
               pdfpages, catchfile}
+  \usepackage[margin=1.25in]{geometry}
   \usepackage{fontspec}
     \setmainfont{Charis SIL}
     \newfontfamily\hangul{Batang}
@@ -19,7 +20,8 @@
     \fancyhf{}
     \lhead{\short}
     \rhead{Page \thepage}
-    \lfoot{UGA Working Papers in Linguistics, Vol 5 (2022)}
+    \lfoot{Footer: Journal name, Vol, Year}
+    \cfoot{}
 
   % New commands for document info
   \newcommand{\shorttitle}[1]{
@@ -50,5 +52,5 @@
 
   % Document info
   \date{}
-  \CatchFileDef{\startpage}{../shared/page.tex}{}
+  \CatchFileDef{\startpage}{shared/page.tex}{}
   \setcounter{page}{\startpage}
