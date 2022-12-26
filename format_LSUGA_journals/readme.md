@@ -1,4 +1,6 @@
-This folder is for both templates for Linguistics Society at UGA (LSUGA) journals and scripts for automatically converting submissions into quasi-acceptable formats.
+# Contents
+
+This folder is for both templates for Linguistics Society at UGA (LSUGA) journals and scripts for automatically converting submissions into quasi-acceptable formats. These journals use the Charis SIL font, which can be downloaded at [https://software.sil.org/charis/](https://software.sil.org/charis/) if you do not already have it.
 
 For those using LaTeX, you need the following files:
 * template.tex
