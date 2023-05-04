@@ -60,27 +60,10 @@ $preamble = "\input{../shared/preamble.tex}"
 $referencesBib = "\printbibliography"
 $ending = "\end{document}"
 
-# Grab files and save names depending on file type
-$allFiles = get-childitem *.doc*, *.*tex, *.*nw -name
-foreach ($file in $allFiles) {
-  if ($file -match "docx?$") {
-    if ($filesWord -eq $null) {
-      $filesWord = $file
-    } else {
-      $filesWord = $filesWord, $file
-    }
-  } elseif ($file -match "(tex|nw)$") {
-    if ($filesTex -eq $null) {
-      $filesTex = $file
-    } else {
-      $filesTex = $filesTex, $file
-    }
-  }
-}
+# Grab filenames
+$filesWord = get-childitem *.doc* -name
 
-########################
-# For Word submissions #
-########################
+# Process
 foreach ($file in $filesWord) {
   $name, $extension = $file.split(".")
 
@@ -96,26 +79,24 @@ foreach ($file in $filesWord) {
 
   # Relevant line numbers to make sections of the text
   $refsStart = $allContent |
-               select-string -pattern "^\S*(References|Bibliography)\S*$" |
+               select-string -pattern "^\S*(References|REFERENCES|Bibliography|BIBLIOGRAPHY)\S*$" -casesensitive |
                select-object -expand linenumber
-  foreach ($line in $allContent[($refsStart + 1)..($allContent.length)]) {
-    if (($previousLine -eq "") -and (-not ($line -match "\D\d{4}\D"))) {
-      $refsEnd = $allContent |
-                 select-string -pattern $line |
-                 select-object -expand linenumber
+  $refsStart++
+  $refsEnd = $refsStart
+
+  foreach ($line in $allContent[$refsStart..($allContent.length)]) {
+    if (($previousLine -eq "") -and (-not ($line -match "(\D{2}\d{4}\D{2}|\.)"))) {
       break
     } else {
+      $refsEnd++
       $previousLine = $line
     }
   }
 
   # Portions of text
-  $contentPreRefs = $allContent |
-                    select-object -index (0..($refsStart - 2))
-  $contentPostRefs = $allContent |
-                     select-object -index ($refsEnd..($allContent.length))
-  $referencesPlain = $allContent |
-                     select-object -index ($refsStart..($refsEnd - 3))
+  $contentPreRefs = $allContent[0..($refsStart - 2)]
+  $contentPostRefs = $allContent[$refsEnd..($allContent.length)]
+  $referencesPlain = $allContent[$refsStart..($refsEnd - 3)]
 
   # Remove mark-up from plain references
   $referencesPlain = $referencesPlain -replace "\\emph{", ""
@@ -127,7 +108,3 @@ foreach ($file in $filesWord) {
   set-content "./$($name)/$($name).tex" $preamble, $contentPreRefs, $contentPostRefs, $referencesBib, $ending
   set-content "./$($name)/references.txt" $referencesPlain
 }
-
-## LaTeX files are also captured but not processed as it would be too difficult
-## to guess all possible tags a person might use and convert them automatically
-## to what we would like to use.
