@@ -12,42 +12,52 @@
 #   1) Place script and submission files into the same directory.          #
 #   2) Rename submission files to match the last name of author.           #
 #   3) Run script.                                                         #
-#   4) Submit the references.txt from each generated directory to          #
-#      the text2bib site to obtain .bib files.                             #
-#   5) Manually update the mark-up in the .tex files.*                     #
-#   6) Update page.tex to be the page on which to start this volume.       #
-#   7) Compile .tex files (all in the same dir) using compile_all.ps1.     #
+#   4) Submit the <name>.txt from each generated directory to the          #
+#      text2bib site to obtain .bib files.                                 #
+#   5) Put .bib and media files into /articles subdirectory.               #
+#   6) Manually update the mark-up in the .tex files.*                     #
+#   7) Update page.tex to be the page on which to start this volume.       #
+#   8) Compile .tex files (all in the same dir) using compile_all.ps1.     #
 #                                                                          #
-# Typical manual editing steps:                                            #
-#   1) Keyword search in the doc for each entry in the .bib file to        #
+# *Typical manual editing steps:                                           #
+#   1) Make sure \title, \shorttitle, \author, \affiliation, and           #
+#      \contact are all defined.                                           #
+#      a) Add \begin{document}, \maketitle, and \showextra to make sure    #
+#         said info appears.                                               #
+#      b) Add \thispagestyle{empty} immediately after \showextra to remove #
+#         the page number from the first page.                             #
+#   2) Add \addbibresource to each for references.                         #
+#   3) Make sure sections are tagged with \section, \subsection, etc.,     #
+#      rather than forced into place/format by other tags.                 #
+#   4) Make sure the abstract is in \begin{abstract}..\end{abstract}.      #
+#   5) Keyword search in the doc for each entry in the .bib file to        #
 #      adjust mentions to mark-up.                                         #
 #      a) If it's already a TeX doc with a .bib, just make sure the cite   #
 #         tags are all biblaTeX compliant.                                 #
-#   2) Keyword search all ( marks to find separated page number citations  #
+#   6) Regex search \(.*?\d+.*?\) to find separated page number citations  #
 #      and replace with correct format, e.g. (p.~#).                       #
-#   2) Find and replace all \emph tags to \lexi.                           #
-#      a) Double check that each \emph was a lexical item (they usualy     #
-#        will be).                                                         #
-#      b) When followed by a gloss, they should have the \gloss mark-up.   #
-#      c) Do the same for all other \text... tags that may actually be     #
-#         lexical items or things like grammatical categories.             #
-#   3) Keyword search " and ' to replace with ``...'' and `...' pairs,     #
+#   7) Keyword search " and ' to replace with ``...'' and `...' pairs,     #
 #      respectively.                                                       #
-#   4) Make sure tables and figures look like they did in the original     #
+#   8) (optional) Find and replace all \emph and \text.. tags with those   #
+#      from preamble.tex that indicate the function of the tagged material.#
+#   9) Replace \uline tags with the standard \underline.                   #
+#  10) Make sure characters not supported by the Charis SIL font are       #
+#      tagged with a font that works from preamble.tex.                    #
+#      a) {\hangul <text>}                                                 #
+#      b) {\greek <text>}                                                  #
+#      c) {\chinese <text>}                                                #
+#      d) {\arab <text>} (make sure to check \RL tags)                     #
+#  11) Make sure tables and figures look like they did in the original     #
 #      submission.                                                         #
-#   5) If they're not in the correct locations (e.g., all appended),       #
-#      place them in a float in the generally right position with the      #
-#      correct float placement flags.                                      #
-#   6) Do keyword search for figure and table to identify where mentions   #
+#      a) If they're not in the correct locations (e.g., all appended),    #
+#         place them in a float in the generally right position with the   #
+#         correct float placement flags.                                   #
+#  12) Do keyword search for figure and table to identify where mentions   #
 #      of figures and tables appear in the text, at which point you should #
 #      replace with \label and \ref tags instead and make sure things like #
 #      "see below/above/wherever" are accurate directions.                 #
-#   7) Make sure all web links in the text are clickable (i.e., they're    #
+#  13) Make sure all web links in the text are clickable (i.e., they're    #
 #      marked up with \href and such).                                     #
-#   8) Make sure \title, \shorttitle, \author, \affilication, and          #
-#      \contact are all defined.                                           #
-#      a) Add \showextra right after \maketitle to make sure said info     #
-#         appears.                                                         #
 #                                                                          #
 # Special note: PowerShell is native to Windows but can also be install    #
 #               on Mac in order to run this script.                        #
@@ -60,22 +70,22 @@ $preamble = "\input{../shared/preamble.tex}"
 $referencesBib = "\printbibliography"
 $ending = "\end{document}"
 
-# Grab filenames
+# Grab filenames and create target directory
 $filesWord = get-childitem *.doc* -name
+new-item "./articles" -itemtype directory
 
 # Process
 foreach ($file in $filesWord) {
   $name, $extension = $file.split(".")
 
   # Convert to TeX
-  new-item "./$($name)" -itemtype directory
-  pandoc --extract-media="./$($name)" "./$($file)" -f docx -t latex -o "./$($name)/$($name).tex"
+  pandoc --extract-media="./articles" "./$($file)" -f docx -t latex -o "./articles/$($name).tex"
 
   # Full text
-  $allContent = get-content "./$($name)/$($name).tex"
+  $allContent = get-content "./articles/$($name).tex"
 
   # Replace some strings
-  $allContent = $allContent -replace "./$($name)/media", "./media"
+  $allContent = $allContent -replace "./articles/media", "./media"
 
   # Relevant line numbers to make sections of the text
   $refsStart = $allContent |
@@ -86,6 +96,7 @@ foreach ($file in $filesWord) {
 
   foreach ($line in $allContent[$refsStart..($allContent.length)]) {
     if (($previousLine -eq "") -and (-not ($line -match "(\D{2}\d{4}\D{2}|\.)"))) {
+      write-host $refsStart, $refsEnd, $allContent[0]
       break
     } else {
       $refsEnd++
@@ -105,6 +116,6 @@ foreach ($file in $filesWord) {
   $referencesPlain = $referencesPlain -replace "~", " "
 
   # Export files
-  set-content "./$($name)/$($name).tex" $preamble, $contentPreRefs, $contentPostRefs, $referencesBib, $ending
-  set-content "./$($name)/references.txt" $referencesPlain
+  set-content "./articles/$($name).tex" $preamble, $contentPreRefs, $contentPostRefs, $referencesBib, $ending
+  set-content "./articles/$($name).txt" $referencesPlain
 }
